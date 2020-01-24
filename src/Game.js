@@ -14,7 +14,7 @@ class Board extends React.Component{
         return <Square />;
     }
     render() {
-        const status = 'Next player';
+        const status = 'Next player:';
 
         return(
             <div>
