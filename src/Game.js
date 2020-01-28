@@ -10,8 +10,9 @@ class Game extends React.Component{
                     <Board />
                 </div>
             </div>
-        )
+        );
     }
 }
+
 
 export default Game;
