@@ -58,7 +58,7 @@ class Board extends React.Component{
 
                 <div className="status">{status} </div>
 
-                <div className="restart">restart game</div>
+                <div className="restart" onClick={() => window.location.reload(false)}>restart game</div>
             </div>
         );
     }
