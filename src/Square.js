@@ -3,7 +3,7 @@ import './index.css';
 
     function Square(props){
         return (
-            <div className= "square" onClick = {props.onClick}>
+            <div className={props.className} onClick = {props.onClick}>
                 {props.value}
             </div>
         )

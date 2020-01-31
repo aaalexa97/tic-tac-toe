@@ -5,6 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #000;
+  color: #fff;
 }
 
 code {
@@ -21,17 +23,21 @@ code {
 .square{
   width: 100px;
   height: 100px;
-  border-color: #000;
+  border-color: #fff;
   border-width: thin;
   border-style: solid;
-  background: #fff;
-  font-size: 3em;
+  background: #000;
+  font-size: 4em;
   text-align: center;
   display: table-cell;
   line-height: 100px;
+  color: #fff;
 }
 
-
+.square:hover{
+  background-color: cornflowerblue;
+  cursor: pointer;
+}
 
 .board{
   margin: auto;
@@ -54,3 +60,7 @@ code {
   padding:10px;
 }
 
+.restart:hover{
+  background-color: cornflowerblue;
+  cursor: pointer;
+}
