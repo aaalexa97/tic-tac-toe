@@ -42,6 +42,12 @@ code {
 .board{
   margin: auto;
   display: table;
+  border-style: solid;
+  border-color: #fff;
+  border-width: thin;
+  padding: 10px;
+  padding-bottom: 15px;
+  background-color: #000
 }
 
 .status{
