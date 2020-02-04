@@ -8,6 +8,7 @@ class Board extends React.Component{
         this.state = {
             squares: Array(9).fill(null),
             isXNext: false,
+            moves: 0,
         };
     }
     handleClick(i) {
@@ -19,6 +20,7 @@ class Board extends React.Component{
         this.setState({
             squares: squares,
             xIsNext: !this.state.xIsNext,
+            moves: this.state.moves + 1,
         });
       }
     renderSquare(i){
@@ -30,9 +32,13 @@ class Board extends React.Component{
     }
     render() {
         const win = calcWin(this.state.squares);
+        const tie = tieGame(this.state.moves);
         let status;
         if(win){
             status = "Winner: " + win;
+        }
+        if(tie){
+            status = tie;
         }
         else{
             status = 'Next player: ' + (this.state.xIsNext ? 'O' : 'X');
@@ -66,7 +72,13 @@ class Board extends React.Component{
 }
 
 
+function tieGame(moves){
+    if (moves === 9){
+        return "Tie Game";
+    }
 
+    return null;
+}
 
 function calcWin(squares){
     const wins = [
