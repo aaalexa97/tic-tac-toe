@@ -37,7 +37,7 @@ class Board extends React.Component{
         if(win){
             status = "Winner: " + win;
         }
-        if(tie){
+        else if(tie){
             status = tie;
         }
         else{
@@ -100,5 +100,7 @@ function calcWin(squares){
     }
     return null;
 }
+
+
 
 export default Board;
