@@ -33,9 +33,22 @@ code {
   line-height: 100px;
   color: #fff;
 }
+.clickedSquare{
+  width: 100px;
+  height: 100px;
+  border-color: #fff;
+  border-width: thin;
+  border-style: solid;
+  background: #000;
+  font-size: 4em;
+  text-align: center;
+  display: table-cell;
+  line-height: 100px;
+  color: #fff;
+}
 
 .square:hover{
-  background-color: cornflowerblue;
+  background-color: rgb(51, 122, 255);
   cursor: pointer;
 }
 
@@ -67,6 +80,6 @@ code {
 }
 
 .restart:hover{
-  background-color: cornflowerblue;
+  background-color: rgb(27, 212, 27);
   cursor: pointer;
 }

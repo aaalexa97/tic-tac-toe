@@ -9,25 +9,30 @@ class Board extends React.Component{
             squares: Array(9).fill(null),
             isXNext: false,
             moves: 0,
+            class: Array(9).fill('square'),
+            clicked: false,
         };
     }
     handleClick(i) {
         const squares = this.state.squares.slice();
+        const classX = this.state.class.slice();
         if(calcWin(squares) || squares[i]){
             return;
         }
-        squares[i] = this.state.xIsNext ? 'o' : 'x';
+        squares[i] = this.state.xIsNext ? 'O' : 'X';
+        classX[i] = this.state.clicked ? 'square' : 'clickedSquare';
         this.setState({
             squares: squares,
             xIsNext: !this.state.xIsNext,
             moves: this.state.moves + 1,
+            class: classX,
         });
       }
     renderSquare(i){
         return ( <Square
         value={this.state.squares[i]}
         onClick={() => this.handleClick(i)}
-        className = {'square'}
+        className = {this.state.class[i]}
       />);
     }
     render() {
