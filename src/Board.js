@@ -1,6 +1,22 @@
 import React from 'react';
 import './index.css';
 import Square from './Square.js';
+import { withStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+
+const ReturnButton =  withStyles({
+    root: {
+      background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+      borderRadius: 3,
+      border: 0,
+      color: 'white',
+      height: 48,
+      padding: '0 30px',
+      marginTop: '10px',
+      marginLeft: '67px',
+      boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+    },
+  })(Button);
 
 class Board extends React.Component{
     constructor(props){
@@ -9,30 +25,29 @@ class Board extends React.Component{
             squares: Array(9).fill(null),
             isXNext: false,
             moves: 0,
-            class: Array(9).fill('square'),
-            clicked: false,
+            disabled: Array(9).fill(false),
         };
     }
     handleClick(i) {
         const squares = this.state.squares.slice();
-        const classX = this.state.class.slice();
+        const dis = this.state.disabled.slice();
         if(calcWin(squares) || squares[i]){
             return;
         }
         squares[i] = this.state.xIsNext ? 'O' : 'X';
-        classX[i] = this.state.clicked ? 'square' : 'clickedSquare';
+        dis[i] = true;
         this.setState({
             squares: squares,
             xIsNext: !this.state.xIsNext,
             moves: this.state.moves + 1,
-            class: classX,
+            disabled: dis,
         });
       }
     renderSquare(i){
         return ( <Square
         value={this.state.squares[i]}
         onClick={() => this.handleClick(i)}
-        className = {this.state.class[i]}
+        disabled = {this.state.disabled[i]}
       />);
     }
     render() {
@@ -70,7 +85,7 @@ class Board extends React.Component{
 
                 <div className="status">{status} </div>
 
-                <div className="restart" onClick={() => window.location.reload(false)}>restart game</div>
+                <ReturnButton variant="contained" color="primary" onClick={() => window.location.reload(false)}>restart game</ReturnButton>
             </div>
         );
     }
